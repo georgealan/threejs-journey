@@ -1,7 +1,7 @@
 
 
 <h1 align="center">
-     💻 <a href="https://www.manning.com/books/modern-java-in-action" alt="Book Modern Java in Action Lambdas, streams, functional and reactive programming" target="_blank"> Modern Java in Action Lambdas, streams, functional and reactive programming </a>
+     💻 <a href="https://threejs-journey.com/" alt="ThreeJS Journey" target="_blank">ThreeJS Journey Become a Three.js developer</a>
 </h1>
 
 ![](https://raw.githubusercontent.com/georgealan/threejs-journey/main/assets/Threejs-Journey.jpg)
@@ -11,17 +11,17 @@
 </h3>
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/georgealan/book-study-modern-java-in-action?color=%2304D361">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/georgealan/threejs-journey?color=%2304D361">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/georgealan/book-study-modern-java-in-action">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/georgealan/threejs-journey">
   
-  <a href="https://github.com/georgealan/book-study-modern-java-in-action/commits/main">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/georgealan/book-study-modern-java-in-action">
+  <a href="https://github.com/georgealan/threejs-journey/commits/main">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/georgealan/threejs-journey">
   </a>
     
    <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
-   <a href="https://github.com/georgealan/book-study-modern-java-in-action/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/georgealan/book-study-modern-java-in-action?style=social">
+   <a href="https://github.com/georgealan/threejs-journey/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/georgealan/threejs-journey?style=social">
   </a>
 </p>
 
