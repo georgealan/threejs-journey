@@ -15,7 +15,10 @@ const scene = new THREE.Scene()
  * Object
  */
 const geometry = new THREE.BoxGeometry(1, 1, 1)
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+const material = new THREE.MeshBasicMaterial({ 
+    color: 0xff0000, 
+    wireframe: false
+})
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 
@@ -23,9 +26,32 @@ scene.add(mesh)
  * Sizes
  */
 const sizes = {
-    width: 800,
-    height: 600
+    width: window.innerWidth,
+    height: window.innerHeight
 }
+
+window.addEventListener('resize', () => {
+
+    // Update sizes
+    sizes.width = window.innerWidth
+    sizes.height = window.innerHeight
+
+    // Update camera
+    camera.aspect = sizes.width / sizes.height
+    camera.updateProjectionMatrix()
+
+    // Update renderer
+    renderer.setSize(sizes.width, sizes.height)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)) // Smoth edges of the 3d forms, set the limit to 2 because that's enough in devices with much pixel ratio.
+})
+
+window.addEventListener('dblclick', () => {
+    if (!document.fullscreenElement) {
+        canvas.requestFullscreen()
+    } else {
+        document.exitFullscreen()
+    }
+})
 
 /**
  * Camera
@@ -46,6 +72,7 @@ const renderer = new THREE.WebGLRenderer({
     canvas: canvas
 })
 renderer.setSize(sizes.width, sizes.height)
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)) // Smoth edges of the 3d forms, set the limit to 2 because that's enough in devices with much pixel ratio.
 
 /**
  * Animate

@@ -2,6 +2,25 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import gsap from 'gsap'
+import * as dat from 'dat.gui'
+
+/**
+ * Debug
+ */
+const gui = new dat.GUI({ closed: true, width: 400 })
+
+const debugObject = { // Create an object to handle color properties
+    color: 0xff0000,
+    spin: () => {
+        gsap.to(mesh.rotation, {duration: 1, y: mesh.rotation.y + Math.PI * 2})
+    }
+}
+
+gui.addColor(debugObject, 'color').onChange(() => {
+    material.color.set(debugObject.color) // Make the material use the color
+})
+
+gui.add(debugObject, 'spin')
 
 /**
  * Base
@@ -16,9 +35,18 @@ const scene = new THREE.Scene()
  * Object
  */
 const geometry = new THREE.BoxGeometry(1, 1, 1)
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+const material = new THREE.MeshBasicMaterial({ color: debugObject.color })
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
+
+//filling the Debug panel
+//The next parameters handle, minimum, maximum, step(or precision)
+gui.add(mesh.position, 'y', -3, 3, 0.01).name('elevation') // One way to do this
+gui.add(mesh.position, 'x').min(-3).max(3).step(0.01).name('horizontal') // Other way to do the same
+gui.add(mesh.position, 'z').min(-3).max(3).step(0.01).name('frontal')
+gui.add(mesh, 'visible') // control boolean properties for debug
+gui.add(material, 'wireframe')
+
 
 /**
  * Sizes

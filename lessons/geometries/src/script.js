@@ -12,8 +12,27 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 // Object
-const geometry = new THREE.BoxGeometry(1, 1, 1)
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+//const geometry = new THREE.BoxGeometry(1, 1, 1)
+const geometry = new THREE.BufferGeometry()
+
+// const vertices = new Float32Array([
+//     0, 0, 0, // v0
+//     0, 1, 0, // v1
+//     1, 0, 0  // v2
+// ])
+const count = 90
+const vertices = new Float32Array(count * 3 * 3)
+
+for (let i = 0; i < count * 3 * 3; i++) {
+    vertices[i] = (Math.random() - 0.5) * 4
+}
+
+geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3))
+
+const material = new THREE.MeshBasicMaterial({ 
+    color: 0xff0000,
+    wireframe: true 
+})
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 
